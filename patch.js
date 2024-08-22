@@ -148,6 +148,7 @@ const afterMemoryTs = `export class Memory {
 const glueJs = readFileSync(`./src/wasm/pkg/${name}.js`, "utf8")
   .replaceAll(beforeMemoryJs, afterMemoryJs)
   .replaceAll(`free()`, `[Symbol.dispose]()`)
+  .replaceAll(`new FinalizationRegistry(ptr => wasm.__wbg_memory_free(ptr >>> 0, 1))`, `{ register: () => {}, unregister: () => {} }`)
   .replaceAll(`module_or_path = new URL('${name}_bg.wasm', import.meta.url);`, `throw new Error();`)
 
 const glueTs = readFileSync(`./src/wasm/pkg/${name}.d.ts`, "utf8")
