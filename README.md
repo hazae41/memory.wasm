@@ -1,6 +1,6 @@
 # memory.wasm
 
-Reusable zero-copy memory for WebAssembly
+Zero-copy memory for WebAssembly
 
 ```bash
 npm i @hazae41/memory.wasm
