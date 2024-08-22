@@ -7,7 +7,8 @@ use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 pub struct Memory {
-    pub(crate) inner: Vec<u8>,
+    #[wasm_bindgen(skip)]
+    pub inner: Vec<u8>,
 }
 
 #[wasm_bindgen]
