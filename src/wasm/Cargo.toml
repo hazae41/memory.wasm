@@ -4,7 +4,7 @@ version = "1.0.0"
 authors = ["hazae41 <4405263+hazae41@users.noreply.github.com>"]
 edition = "2021"
 
-description = "Zero-copy memory for WebAssembly"
+description = "Reusable zero-copy memory for WebAssembly"
 repository = "https://github.com/hazae41/memory.wasm"
 license = "Unlicense"
 
