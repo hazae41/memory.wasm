@@ -27,9 +27,9 @@ function passArray8ToWasm0(arg, malloc) {
     return ptr;
 }
 
-const MemoryFinalization = (typeof FinalizationRegistry === 'undefined')
+const MemoryFinalization = true
     ? { register: () => {}, unregister: () => {} }
-    : { register: () => {}, unregister: () => {} };
+    : new FinalizationRegistry(ptr => wasm.__wbg_memory_free(ptr >>> 0, 1));
 /**
 */
 export class Memory {
