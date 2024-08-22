@@ -14,7 +14,8 @@
   "files": [
     "./dist/esm",
     "./dist/cjs",
-    "./dist/types"
+    "./dist/types",
+    "./dist/wasm"
   ],
   "scripts": {
     "build:wasm": "cd ./src/wasm && rimraf pkg && wasm-pack build --target web --release && cd ../.. && node patch.js memory_wasm",
