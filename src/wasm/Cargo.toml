@@ -1,0 +1,20 @@
+[package]
+name = "memory_wasm"
+version = "1.0.0"
+authors = ["hazae41 <4405263+hazae41@users.noreply.github.com>"]
+edition = "2021"
+
+description = "Memory for WebAssembly"
+repository = "https://github.com/hazae41/memory.wasm"
+license = "Unlicense"
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+lto = true
+debug = false
+opt-level = 3
+
+[dependencies]
+wasm-bindgen = { version = "0.2.93", default-features = false }

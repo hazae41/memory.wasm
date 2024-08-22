@@ -1,0 +1,24 @@
+{
+  "name": "memory_wasm",
+  "type": "module",
+  "collaborators": [
+    "hazae41 <4405263+hazae41@users.noreply.github.com>"
+  ],
+  "description": "Memory for WebAssembly",
+  "version": "1.0.0",
+  "license": "Unlicense",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hazae41/memory.wasm"
+  },
+  "files": [
+    "memory_wasm_bg.wasm",
+    "memory_wasm.js",
+    "memory_wasm.d.ts"
+  ],
+  "main": "memory_wasm.js",
+  "types": "memory_wasm.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
