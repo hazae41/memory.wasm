@@ -1,6 +1,9 @@
 import { readFileSync, rmSync, writeFileSync } from "fs";
 
-const [name] = process.argv.slice(2)
+const cargo = readFileSync(`./src/wasm/Cargo.toml`, "utf8")
+const packp = cargo.split("\n\n").find(p => p.startsWith("[package]"))
+const namel = packp.split("\n").find(l => l.startsWith("name = "))
+const name = namel.split(" = ")[1].replaceAll('"', "").trim()
 
 const wasm = readFileSync(`./src/wasm/pkg/${name}_bg.wasm`)
 

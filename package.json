@@ -18,8 +18,8 @@
     "./dist/wasm"
   ],
   "scripts": {
-    "build:wasm": "cd ./src/wasm && rimraf pkg && wasm-pack build --target web --release && cd ../.. && node patch.js memory_wasm",
-    "build:node": "rimraf dist && rollup -c && rsync -a ./src/wasm ./dist --exclude=target --exclude=pkg",
+    "build:wasm": "cd ./src/wasm && rimraf pkg && wasm-pack build --target web --release && cd ../.. && node patch.wasm.mjs",
+    "build:node": "rimraf dist && rollup -c && rsync -a ./src/wasm ./dist --exclude=target --exclude=pkg && node patch.node.mjs",
     "build": "npm run build:wasm && npm run build:node",
     "test": "node ./dist/test/node/index.test.mjs",
     "prepare": "npm run build:node"
