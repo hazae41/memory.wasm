@@ -232,17 +232,8 @@ const afterMemoryJs2 = `export class Memory {
 
 const beforeMemoryTs = `export class Memory {
   free(): void;
-/**
-* @param {Uint8Array} inner
-*/
   constructor(inner: Uint8Array);
-/**
-* @returns {number}
-*/
   ptr(): number;
-/**
-* @returns {number}
-*/
   len(): number;
 }`
 
