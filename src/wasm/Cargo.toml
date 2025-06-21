@@ -17,4 +17,4 @@ debug = false
 opt-level = 3
 
 [dependencies]
-wasm-bindgen = { version = "0.2.93", default-features = false }
+wasm-bindgen = { version = "0.2.100", default-features = false }

@@ -1,25 +1,10 @@
 /* tslint:disable */
 /* eslint-disable */
-/**
-*/
 export class Memory {
   [Symbol.dispose](): void;
-/**
-* @param {Uint8Array} inner
-*/
   constructor(inner: Uint8Array);
-/**
-* @returns {number}
-*/
   ptr(): number;
-/**
-* @returns {number}
-*/
   len(): number;
-/**
-* @returns {Uint8Array}
-*/
-  get bytes(): Uint8Array;
 }
 
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
@@ -30,7 +15,9 @@ export interface InitOutput {
   readonly memory_new: (a: number, b: number) => number;
   readonly memory_ptr: (a: number) => number;
   readonly memory_len: (a: number) => number;
+  readonly __wbindgen_export_0: WebAssembly.Table;
   readonly __wbindgen_malloc: (a: number, b: number) => number;
+  readonly __wbindgen_start: () => void;
 }
 
 export type SyncInitInput = BufferSource | WebAssembly.Module;

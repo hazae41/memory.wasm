@@ -1,7 +1,3 @@
-extern crate alloc;
-
-use alloc::vec::Vec;
-
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
