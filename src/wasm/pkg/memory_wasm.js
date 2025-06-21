@@ -30,15 +30,12 @@ function passArray8ToWasm0(arg, malloc) {
 const MemoryFinalization = true
     ? { register: () => {}, unregister: () => {} }
     : new FinalizationRegistry(ptr => wasm.__wbg_memory_free(ptr >>> 0, 1));
-/**
-*/
+
 export class Memory {
 
     __destroy_into_raw() {
         const ptr = this.__wbg_ptr;
         this.__wbg_ptr = 0;
-        this.__wbg_ptr0 = 0;
-        this.__wbg_len0 = 0;
         MemoryFinalization;
         return ptr;
     }
@@ -48,49 +45,29 @@ export class Memory {
         wasm.__wbg_memory_free(ptr, 0);
     }
     /**
-    * @param {Uint8Array} inner
-    */
+     * @param {Uint8Array} inner
+     */
     constructor(inner) {
         const ptr0 = passArray8ToWasm0(inner, wasm.__wbindgen_malloc);
         const len0 = WASM_VECTOR_LEN;
         const ret = wasm.memory_new(ptr0, len0);
         this.__wbg_ptr = ret >>> 0;
-        this.__wbg_ptr0 = ptr0 >>> 0;
-        this.__wbg_len0 = len0 >>> 0;
         MemoryFinalization;
         return this;
     }
     /**
-    * @returns {number}
-    */
+     * @returns {number}
+     */
     ptr() {
         const ret = wasm.memory_ptr(this.__wbg_ptr);
         return ret >>> 0;
     }
     /**
-    * @returns {number}
-    */
+     * @returns {number}
+     */
     len() {
         const ret = wasm.memory_len(this.__wbg_ptr);
         return ret >>> 0;
-    }
-    /**
-    * @returns {number}
-    */
-    get ptr0() {
-        return this.__wbg_ptr0 ??= this.ptr();
-    }
-    /**
-    * @returns {number}
-    */
-    get len0() {
-        return this.__wbg_len0 ??= this.len();
-    }
-    /**
-    * @returns {Uint8Array}
-    */
-    get bytes() {
-        return getUint8ArrayMemory0().subarray(this.ptr0, this.ptr0 + this.len0);
     }
 }
 
@@ -102,7 +79,7 @@ async function __wbg_load(module, imports) {
 
             } catch (e) {
                 if (module.headers.get('Content-Type') != 'application/wasm') {
-                    console.warn("`WebAssembly.instantiateStreaming` failed because your server does not serve wasm with `application/wasm` MIME type. Falling back to `WebAssembly.instantiate` which is slower. Original error:\n", e);
+                    console.warn("`WebAssembly.instantiateStreaming` failed because your server does not serve Wasm with `application/wasm` MIME type. Falling back to `WebAssembly.instantiate` which is slower. Original error:\n", e);
 
                 } else {
                     throw e;
@@ -128,6 +105,16 @@ async function __wbg_load(module, imports) {
 function __wbg_get_imports() {
     const imports = {};
     imports.wbg = {};
+    imports.wbg.__wbindgen_init_externref_table = function() {
+        const table = wasm.__wbindgen_export_0;
+        const offset = table.grow(4);
+        table.set(0, undefined);
+        table.set(offset + 0, undefined);
+        table.set(offset + 1, null);
+        table.set(offset + 2, true);
+        table.set(offset + 3, false);
+        ;
+    };
     imports.wbg.__wbindgen_throw = function(arg0, arg1) {
         throw new Error(getStringFromWasm0(arg0, arg1));
     };
@@ -145,7 +132,7 @@ function __wbg_finalize_init(instance, module) {
     cachedUint8ArrayMemory0 = null;
 
 
-
+    wasm.__wbindgen_start();
     return wasm;
 }
 
@@ -153,10 +140,13 @@ function initSync(module) {
     if (wasm !== undefined) return wasm;
 
 
-    if (typeof module !== 'undefined' && Object.getPrototypeOf(module) === Object.prototype)
-    ({module} = module)
-    else
-    console.warn('using deprecated parameters for `initSync()`; pass a single object instead')
+    if (typeof module !== 'undefined') {
+        if (Object.getPrototypeOf(module) === Object.prototype) {
+            ({module} = module)
+        } else {
+            console.warn('using deprecated parameters for `initSync()`; pass a single object instead')
+        }
+    }
 
     const imports = __wbg_get_imports();
 
@@ -175,10 +165,13 @@ async function __wbg_init(module_or_path) {
     if (wasm !== undefined) return wasm;
 
 
-    if (typeof module_or_path !== 'undefined' && Object.getPrototypeOf(module_or_path) === Object.prototype)
-    ({module_or_path} = module_or_path)
-    else
-    console.warn('using deprecated parameters for the initialization function; pass a single object instead')
+    if (typeof module_or_path !== 'undefined') {
+        if (Object.getPrototypeOf(module_or_path) === Object.prototype) {
+            ({module_or_path} = module_or_path)
+        } else {
+            console.warn('using deprecated parameters for the initialization function; pass a single object instead')
+        }
+    }
 
     if (typeof module_or_path === 'undefined') {
         throw new Error();
