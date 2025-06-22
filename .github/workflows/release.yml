@@ -6,8 +6,20 @@ on:
 name: release
 
 jobs:
-  check:
-    name: check
+  build:
+    name: publish
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: 'docker compose up --build --exit-code-from app'
+      - run: 'git status --porcelain'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pkg
+          path: ./src/wasm/pkg/
+      - run: '[[ -z $(git status --porcelain) ]]'
+  publish:
+    name: publish
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v4
