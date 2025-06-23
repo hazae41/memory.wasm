@@ -7,17 +7,16 @@ name: release
 
 jobs:
   build:
-    name: publish
+    name: build
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - run: "npm ci"
-      - run: "npm diff --diff=@hazae41/memory.wasm@${{github.ref_name}} --diff=."
-      - run: "[[ -z $(npm diff --diff=@hazae41/memory.wasm@${{github.ref_name}} --diff=.) ]]"
       - run: "docker compose up --build --exit-code-from app"
-      - run: "git status --porcelain"
       - uses: actions/upload-artifact@v4
         with:
-          name: pkg
+          name: build
           path: ./src/wasm/pkg/
-      - run: "[[ -z $(git status --porcelain) ]]"
+      - run: "git status --porcelain"
+      - run: "! !! | (grep -q .)"
+      - run: "npm diff --diff=@hazae41/memory.wasm@${{github.ref_name}} --diff=."
+      - run: "! !! | (grep -q .)"
