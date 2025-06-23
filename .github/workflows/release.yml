@@ -17,6 +17,6 @@ jobs:
           name: build
           path: ./src/wasm/pkg/
       - run: "git status --porcelain"
-      - run: "! !! | (grep -q .)"
+      - run: "! (fc -s) | (grep -q .)"
       - run: "npm diff --diff=@hazae41/memory.wasm@${{github.ref_name}} --diff=."
-      - run: "! !! | (grep -q .)"
+      - run: "! (fc -s) | (grep -q .)"
