@@ -6,8 +6,8 @@ on:
 name: release
 
 jobs:
-  build:
-    name: build
+  wasm:
+    name: wasm
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
@@ -16,8 +16,6 @@ jobs:
         with:
           name: build
           path: ./src/wasm/pkg/
-      - run: "git status --porcelain"
-      - run: "! (fc -s) | (grep -q .)"
+      - run: "! (git status --porcelain) | (tee /dev/tty) | (grep -q .)"
       - run: "npm ci"
-      - run: "npm diff --diff=@hazae41/memory.wasm@${{github.ref_name}} --diff=."
-      - run: "! (fc -s) | (grep -q .)"
+      - run: "! (npm diff --diff=@hazae41/memory.wasm@${{github.ref_name}} --diff=.) | (tee /dev/tty) | (grep -q .)"
