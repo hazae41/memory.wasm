@@ -67,14 +67,10 @@ If the output is empty then the bytecode is the same as the one I commited
 
 ### Automated checks
 
-Each time I commit to the repository, the GitHub's CI does the following:
-- Clone the repository
-- Reproduce the build using `docker compose up --build`
-- Throw an error if the `git status --porcelain` output is not empty
-
 Each time I release a new version tag on GitHub, the GitHub's CI does the following:
-- Clone the repository
-- Do not reproduce the build, as it's already checked by the task above
-- Throw an error if there is a `npm diff` between the cloned repository and the same version tag on NPM
+- Clone the GitHub repository
+- Reproduce the build on Docker
+- Throw an error if there is a diff with the GitHub repository
+- Throw an error if there is a diff with the NPM release
 
 If a version is present on NPM but not on GitHub, do not use!
