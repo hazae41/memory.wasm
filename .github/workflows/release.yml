@@ -28,3 +28,10 @@ jobs:
       - run: "[[ -z $(git status --porcelain) ]]"
       - run: "npm diff --diff=@hazae41/memory.wasm@${{github.ref_name}} --diff=."
       - run: "[[ -z $(npm diff --diff=@hazae41/memory.wasm@${{github.ref_name}} --diff=.) ]]"
+  npm:
+    name: npm
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: "npm diff --diff=@hazae41/memory.wasm@${{github.ref_name}} --diff=."
+      - run: "[[ -z $(npm diff --diff=@hazae41/memory.wasm@${{github.ref_name}} --diff=.) ]]"
