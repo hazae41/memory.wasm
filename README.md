@@ -57,10 +57,10 @@ You can build the exact same bytecode using Docker, just be sure you're on a `li
 docker compose up --build
 ```
 
-Then check that all the files are the same using `git status`
+Then check that all the files are the same using `git status` and `npm diff`
 
 ```bash
-git status --porcelain
+git status && npm diff
 ```
 
 If the output is empty then the bytecode is the same as the one I commited
