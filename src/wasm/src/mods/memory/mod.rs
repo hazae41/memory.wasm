@@ -22,9 +22,4 @@ impl Memory {
     pub fn len(&self) -> usize {
         self.inner.len()
     }
-
-    #[wasm_bindgen]
-    pub fn test(&self) -> usize {
-        self.inner.len()
-    }
 }

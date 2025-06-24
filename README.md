@@ -67,10 +67,4 @@ If the output is empty then the bytecode is the same as the one I commited
 
 ### Automated checks
 
-Each time I release a new version tag on GitHub, the GitHub's CI does the following:
-- Clone the GitHub repository
-- Reproduce the build on Docker
-- Throw an error if there is a diff with the GitHub release
-- Throw an error if there is a diff with the NPM release
-
-If a version is present on NPM but not on GitHub, do not use!
+Each time I release a new version on GitHub, the GitHub's CI clones the GitHub repository, reproduces the build, and throws an error if the NPM release is different. If a version is present on NPM but not on GitHub, do not use!
