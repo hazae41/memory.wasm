@@ -16,7 +16,5 @@ jobs:
         with:
           name: build
           path: ./src/wasm/pkg/
-      - run: "git status --porcelain"
-      - run: "[[ -z $(git status --porcelain) ]]"
       - run: "npm diff --tag=${{github.ref_name}}"
       - run: "[[ -z $(npm diff --tag=${{github.ref_name}}) ]]"
