@@ -1,4 +1,4 @@
-import { readFileSync, rmSync, writeFileSync } from "fs";
+import { readFileSync, rmSync, writeFileSync } from "node:fs";
 
 const cargo = readFileSync(`./src/wasm/Cargo.toml`, "utf8")
 const packp = cargo.split("\n\n").find(p => p.startsWith("[package]"))

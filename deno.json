@@ -1,0 +1,18 @@
+{
+  "name": "@hazae41/memory.wasm",
+  "version": "10.0.0",
+  "tasks": {
+    "compile": "cd ./src/wasm && rm -rf ./pkg && wasm-pack build --target web --release && cd ../.. && deno run -A ./patch.wasm.mjs"
+  },
+  "imports": {
+    "@/": "./src/"
+  },
+  "exports": {
+    ".": "./src/node/index.ts"
+  },
+  "compilerOptions": {
+    "lib": [
+      "es2024"
+    ]
+  }
+}
