@@ -14,7 +14,8 @@
   "files": [
     "memory_wasm_bg.wasm",
     "memory_wasm.js",
-    "memory_wasm.d.ts"
+    "memory_wasm.d.ts",
+    "LICENSE.md"
   ],
   "main": "memory_wasm.js",
   "types": "memory_wasm.d.ts",

@@ -1,28 +1,17 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "baseUrl": "./src/node",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "strict": true,
-    "downlevelIteration": true,
-    "lib": [
-      "DOM",
-      "ESNext"
-    ],
+    "baseUrl": "./src",
     "paths": {
-      "mods/*": [
-        "mods/*"
-      ],
-      "libs/*": [
-        "libs/*"
-      ],
-      "tests/*": [
-        "tests/*"
-      ],
-    }
+      "@/*": ["./*"]
+    } ,
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "outDir": "./out/node",
+    "declaration": true,
+    "noCheck": true
   },
   "include": [
-    "./src/node/**/**.ts",
+    "./src/**/*"
   ],
+  "exclude": []
 }
