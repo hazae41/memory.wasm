@@ -3,7 +3,6 @@ FROM rust:1.87.0
 WORKDIR /app
 
 RUN apt update
-RUN apt install -y rsync
 
 RUN cargo install wasm-pack
 
@@ -18,4 +17,4 @@ RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION}
 
 ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
 
-CMD npm ci && npm run build
+CMD npm ci --ignore-scripts && npm run compile

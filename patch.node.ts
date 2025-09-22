@@ -1,6 +1,8 @@
 import fs from "node:fs"
 
-const slashes = "/..".repeat(process.env.npm_package_name!.split("/").length)
+const { name } = JSON.parse(fs.readFileSync("./package.json", "utf8"))
+
+const slashes = "/..".repeat(name.split("/").length)
 
 const original = fs.readFileSync("./out/wasm/Cargo.toml", "utf8")
 
