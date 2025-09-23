@@ -20,7 +20,7 @@ jobs:
           path: ./src/wasm/pkg/
       - run: "npm diff $(jq -r '.name' package.json)@$(jq -r '.version' package.json)"
       - run: "[[ -z $(npm diff $(jq -r '.name' package.json)@$(jq -r '.version' package.json)) ]]"
-      - run: "deno bundle ./src/mod.ts --output local"
+      - run: "deno bundle ./src/node/mod.ts --output local"
       - run: "deno bundle jsr:$(jq -r '.name' deno.json)@$(jq -r '.version' deno.json) --output remote"
       - run: "diff local remote"
       - run: "[[ -z $(diff local remote) ]]"
