@@ -1,5 +1,6 @@
 export * from "../../wasm/pkg/memory_wasm.js";
 
+/* @ts-types="../../wasm/pkg/memory_wasm.d.ts" */
 import init, { type InitOutput } from "../../wasm/pkg/memory_wasm.js";
 import { data } from "../../wasm/pkg/memory_wasm.wasm.js";
 
