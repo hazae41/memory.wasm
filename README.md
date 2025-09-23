@@ -3,7 +3,7 @@
 Zero-copy memory for WebAssembly
 
 ```bash
-npm i @hazae41/memory.wasm
+npm install @hazae41/memory.wasm
 ```
 
 ```bash
