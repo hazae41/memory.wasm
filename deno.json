@@ -1,5 +1,5 @@
 {
-  "name": "@hazae41/memory_wasm",
+  "name": "@hazae41/memory-wasm",
   "version": "1.0.30",
   "imports": {
     "@/": "./src/"
