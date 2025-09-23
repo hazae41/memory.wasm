@@ -6,7 +6,11 @@ Zero-copy memory for WebAssembly
 npm i @hazae41/memory.wasm
 ```
 
-[**Node Package 📦**](https://www.npmjs.com/package/@hazae41/memory.wasm)
+```bash
+deno install jsr:@hazae41/memory-wasm
+```
+
+[**📦 NPM**](https://www.npmjs.com/package/@hazae41/rewind) • [**📦 JSR**](https://jsr.io/@hazae41/memory-wasm)
 
 ## Features
 - Reproducible building
@@ -33,28 +37,12 @@ example_method(memory)
 
 ## Building
 
-### Unreproducible building
-
-You need to install [Rust](https://www.rust-lang.org/tools/install)
-
-Then, install [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/)
-
-```bash
-cargo install wasm-pack
-```
-
-Finally, do a clean install and build
-
-```bash
-npm ci && npm run build
-```
-
 ### Reproducible building
 
 You can build the exact same bytecode using Docker, just be sure you're on a `linux/amd64` host
 
 ```bash
-docker compose up --build
+npm run compile
 ```
 
 Then check that all the files are the same using `npm diff`
@@ -63,7 +51,7 @@ Then check that all the files are the same using `npm diff`
 npm diff
 ```
 
-If the output is empty then the bytecode is the same as the one I commited
+If the output is empty then the bytecode is the same as the one I published on NPM.
 
 ### Automated checks
 
