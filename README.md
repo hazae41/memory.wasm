@@ -10,7 +10,7 @@ npm install @hazae41/memory.wasm
 deno install jsr:@hazae41/memory-wasm
 ```
 
-[**📦 NPM**](https://www.npmjs.com/package/@hazae41/rewind) • [**📦 JSR**](https://jsr.io/@hazae41/memory-wasm)
+[**📦 NPM**](https://www.npmjs.com/package/@hazae41/memory.wasm) • [**📦 JSR**](https://jsr.io/@hazae41/memory-wasm)
 
 ## Features
 - Reproducible building
