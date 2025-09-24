@@ -39,7 +39,7 @@ example_method(memory)
 
 ### Reproducible building
 
-You can build the exact same bytecode using Docker, just be sure you're on a `linux/amd64` host
+You can build the exact same bytecode using Docker
 
 ```bash
 npm run compile
