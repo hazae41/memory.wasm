@@ -3,14 +3,14 @@
 Zero-copy memory for WebAssembly
 
 ```bash
-npm install @hazae41/memory.wasm
+npm install @hazae41/memory-wasm
 ```
 
 ```bash
 deno install jsr:@hazae41/memory-wasm
 ```
 
-[**📦 NPM**](https://www.npmjs.com/package/@hazae41/memory.wasm) • [**📦 JSR**](https://jsr.io/@hazae41/memory-wasm)
+[**📦 NPM**](https://www.npmjs.com/package/@hazae41/memory-wasm) • [**📦 JSR**](https://jsr.io/@hazae41/memory-wasm)
 
 ## Features
 - Reproducible building
