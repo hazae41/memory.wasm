@@ -7,6 +7,11 @@
   "exports": {
     ".": "./src/node/mod.ts"
   },
+  "publish": {
+    "include": [
+      "./src"
+    ]
+  },
   "lint": {
     "rules": {
       "exclude": [
