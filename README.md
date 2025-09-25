@@ -20,7 +20,7 @@ deno install jsr:@hazae41/memory-wasm
 ## Usage
 
 ```typescript
-import { ExampleWasm, Memory, example_method } from "@hazae41/example.wasm";
+import { ExampleWasm, Memory, example_method } from "@hazae41/example-wasm";
 
 // Wait for initialization
 await ExampleWasm.initBundled();
