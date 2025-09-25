@@ -18,6 +18,7 @@ jobs:
         with:
           name: build
           path: ./src/wasm/pkg/
+      - run: "cat ./src/wasm/pkg/*.wasm"
       - run: "npm diff $(jq -r '.name' package.json)@$(jq -r '.version' package.json)"
       - run: "[[ -z $(npm diff $(jq -r '.name' package.json)@$(jq -r '.version' package.json)) ]]"
       - run: "deno bundle ./src/node/mod.ts --output local"
