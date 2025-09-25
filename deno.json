@@ -9,8 +9,7 @@
   },
   "publish": {
     "include": [
-      "src/",
-      "src/**/*.rs"
+      "src/**/*"
     ]
   },
   "lint": {
