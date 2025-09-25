@@ -18,10 +18,9 @@ jobs:
         with:
           name: build
           path: ./src/wasm/pkg/
-      - run: "cat ./src/wasm/pkg/*.wasm"
-      - run: "npm diff $(jq -r '.name' package.json)@$(jq -r '.version' package.json)"
-      - run: "[[ -z $(npm diff $(jq -r '.name' package.json)@$(jq -r '.version' package.json)) ]]"
+      - run: "npm diff --diff=$(jq -r '.name' package.json)@$(jq -r '.version' package.json)"
+      - run: "[[ -z $(npm diff --diff=$(jq -r '.name' package.json)@$(jq -r '.version' package.json)) ]]"
       - run: "deno bundle ./src/node/mod.ts --output local"
-      - run: "deno bundle jsr:$(jq -r '.name' deno.json)@$(jq -r '.version' deno.json) --output remote"
+      - run: "deno bundle https://jsr.io/$(jq -r '.name' deno.json)/$(jq -r '.version' deno.json)/src/node/mod.ts --output remote"
       - run: "diff local remote"
       - run: "[[ -z $(diff local remote) ]]"
