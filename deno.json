@@ -1,16 +1,11 @@
 {
   "name": "@hazae41/memory-wasm",
-  "version": "1.0.42",
+  "version": "1.0.43",
   "imports": {
     "@/": "./src/"
   },
   "exports": {
     ".": "./src/node/mod.ts"
-  },
-  "publish": {
-    "include": [
-      "src/**/*"
-    ]
   },
   "lint": {
     "rules": {
