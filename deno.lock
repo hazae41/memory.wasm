@@ -1,15 +1,10 @@
 {
   "version": "5",
   "specifiers": {
-    "npm:@hazae41/tscousin@^1.0.9": "1.0.9",
     "npm:@types/node@^24.5.2": "24.5.2",
     "npm:typescript@^5.9.2": "5.9.2"
   },
   "npm": {
-    "@hazae41/tscousin@1.0.9": {
-      "integrity": "sha512-c5tlw68XlVhf67sdw6m7/Lsy735b//+g+VJ/RS8Fnrx/AAlOBmoiMvaTyHtUHpeLBcbg+l+KqG4avFNzkapChA==",
-      "bin": true
-    },
     "@types/node@24.5.2": {
       "integrity": "sha512-FYxk1I7wPv3K2XBaoyH2cTnocQEu8AOZ60hPbsyukMPLv5/5qr7V1i8PLHdl6Zf87I+xZXFvPCXYjiTFq+YSDQ==",
       "dependencies": [
@@ -27,7 +22,7 @@
   "workspace": {
     "packageJson": {
       "dependencies": [
-        "npm:@hazae41/tscousin@^1.0.9",
+        "npm:@hazae41/tscousin@^1.0.17",
         "npm:@types/node@^24.5.2",
         "npm:typescript@^5.9.2"
       ]
