@@ -1,10 +1,15 @@
 {
   "version": "5",
   "specifiers": {
+    "npm:@hazae41/tscousin@^1.0.17": "1.0.17",
     "npm:@types/node@^24.5.2": "24.5.2",
     "npm:typescript@^5.9.2": "5.9.2"
   },
   "npm": {
+    "@hazae41/tscousin@1.0.17": {
+      "integrity": "sha512-ju0LFOXACRrf4T4YtXiDY71obV0oWdHMcxx4Ep0wkcyaNhgxF2++3uUziL5GQSndQo/jx/0U6TGF3qXjb/1rCA==",
+      "bin": true
+    },
     "@types/node@24.5.2": {
       "integrity": "sha512-FYxk1I7wPv3K2XBaoyH2cTnocQEu8AOZ60hPbsyukMPLv5/5qr7V1i8PLHdl6Zf87I+xZXFvPCXYjiTFq+YSDQ==",
       "dependencies": [
