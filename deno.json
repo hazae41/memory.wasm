@@ -10,7 +10,9 @@
   "lint": {
     "rules": {
       "exclude": [
-        "no-namespace"
+        "no-constant-condition",
+        "no-node-globals",
+        "no-unused-vars"
       ]
     }
   }
