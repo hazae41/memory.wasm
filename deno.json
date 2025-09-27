@@ -6,14 +6,5 @@
   },
   "exports": {
     ".": "./src/node/mod.ts"
-  },
-  "lint": {
-    "rules": {
-      "exclude": [
-        "no-constant-condition",
-        "no-node-globals",
-        "no-unused-vars"
-      ]
-    }
   }
 }
