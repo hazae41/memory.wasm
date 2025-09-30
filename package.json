@@ -9,7 +9,8 @@
     "examine": "deno lint ./src/node && deno check ./src/node && deno test ./src/node",
     "compile": "docker compose up --build --exit-code-from app && deno -RW ./patch.wasm.ts",
     "prepare": "rm -rf ./out && tsc && cp -r ./src/wasm/. ./out/wasm && tscousin && deno -RW ./patch.node.ts",
-    "version": "deno -RW ./vsync.ts && git add deno.json"
+    "version": "deno -RW ./!vsync.ts && git add deno.json",
+    "synchro": "deno -RW ./!dsync.ts && deno install"
   },
   "files": [
     "./out"

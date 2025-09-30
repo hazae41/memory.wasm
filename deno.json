@@ -2,7 +2,8 @@
   "name": "@hazae41/memory-wasm",
   "version": "1.0.45",
   "imports": {
-    "@/": "./src/"
+    "@/": "./src/",
+    "@hazae41/tscousin": "jsr:@hazae41/tscousin@^1.0.17"
   },
   "exports": {
     ".": "./src/node/mod.ts"
