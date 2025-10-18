@@ -1,6 +1,6 @@
 {
   "name": "@hazae41/memory-wasm",
-  "version": "1.0.45",
+  "version": "1.0.46",
   "imports": {
     "@/": "./src/",
     "@hazae41/tscousin": "jsr:@hazae41/tscousin@^1.0.28"
