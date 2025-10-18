@@ -3,9 +3,17 @@
   "version": "1.0.45",
   "imports": {
     "@/": "./src/",
-    "@hazae41/tscousin": "jsr:@hazae41/tscousin@^1.0.17"
+    "@hazae41/tscousin": "jsr:@hazae41/tscousin@^1.0.28"
   },
   "exports": {
     ".": "./src/node/mod.ts"
-  }
+  },
+  "lint": {
+    "rules": {
+      "exclude": [
+        "no-namespace"
+      ]
+    }
+  },
+  "compilerOptions": {}
 }
