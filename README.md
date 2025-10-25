@@ -20,19 +20,19 @@ deno install jsr:@hazae41/memory-wasm
 ## Usage
 
 ```typescript
-import { ExampleWasm, Memory, example_method } from "@hazae41/example-wasm";
+import { exampleWasm } from "@hazae41/example-wasm";
 
 // Wait for initialization
-await ExampleWasm.initBundled();
+await exampleWasm.initBundled();
 
 // Pass bytes to memory
-using memory = new Memory();
+using memory = new exampleWasm.Memory();
 
 // View bytes from memory
 console.log(memory.bytes)
 
 // Call method with 0-copy
-example_method(memory)
+exampleWasm.example_method(memory)
 ```
 
 ## Building
