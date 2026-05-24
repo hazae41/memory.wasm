@@ -1,14 +1,9 @@
 import { readFileSync, rmSync, writeFileSync } from "node:fs";
 
-const cargo = readFileSync(`./src/wasm/Cargo.toml`, "utf8")
-const packp = cargo.split("\n\n").find(p => p.startsWith("[package]"))!
-const namel = packp.split("\n").find(l => l.startsWith("name = "))!
-const name = namel.split(" = ")[1].replaceAll('"', "").trim()
+const wasm = readFileSync(`./src/wasm/pkg/daemon_bg.wasm`)
 
-const wasm = readFileSync(`./src/wasm/pkg/${name}_bg.wasm`)
-
-writeFileSync(`./src/wasm/pkg/${name}.wasm.js`, `export const data = "data:application/wasm;base64,${wasm.toString("base64")}";`);
-writeFileSync(`./src/wasm/pkg/${name}.wasm.d.ts`, `export const data: string;`);
+writeFileSync(`./src/wasm/pkg/daemon.wasm.js`, `export const data = "data:application/wasm;base64,${wasm.toString("base64")}";`);
+writeFileSync(`./src/wasm/pkg/daemon.wasm.d.ts`, `export const data: string;`);
 
 const beforeMemoryJs = `export class Memory {
 
@@ -257,17 +252,17 @@ const afterMemoryTs = `export class Memory {
   get bytes(): Uint8Array;
 }`
 
-const glueJs = readFileSync(`./src/wasm/pkg/${name}.js`, "utf8")
+const glueJs = readFileSync(`./src/wasm/pkg/daemon.js`, "utf8")
   .replaceAll(beforeMemoryJs, afterMemoryJs)
   .replaceAll(beforeMemoryJs2, afterMemoryJs2)
   .replaceAll(`free()`, `[Symbol.dispose]()`)
-  .replaceAll(`module_or_path = new URL('${name}_bg.wasm', import.meta.url);`, `throw new Error();`)
+  .replaceAll(`module_or_path = new URL('daemon_bg.wasm', import.meta.url);`, `throw new Error();`)
 
-const glueTs = readFileSync(`./src/wasm/pkg/${name}.d.ts`, "utf8")
+const glueTs = readFileSync(`./src/wasm/pkg/daemon.d.ts`, "utf8")
   .replaceAll(beforeMemoryTs, afterMemoryTs)
   .replaceAll(`free()`, `[Symbol.dispose]()`)
 
-writeFileSync(`./src/wasm/pkg/${name}.js`, glueJs)
-writeFileSync(`./src/wasm/pkg/${name}.d.ts`, glueTs)
+writeFileSync(`./src/wasm/pkg/daemon.js`, glueJs)
+writeFileSync(`./src/wasm/pkg/daemon.d.ts`, glueTs)
 
 rmSync(`./src/wasm/pkg/.gitignore`, { force: true });
