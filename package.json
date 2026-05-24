@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "@hazae41/memory-wasm",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "Zero-copy memory for WebAssembly",
   "repository": "github:hazae41/memory.wasm",
   "author": "hazae41",
