@@ -11,10 +11,5 @@ license = "Unlicense"
 [lib]
 crate-type = ["cdylib", "lib"]
 
-[profile.release]
-lto = true
-debug = false
-opt-level = 3
-
 [dependencies]
 wasm-bindgen = { version = "0.2.100", default-features = false }
