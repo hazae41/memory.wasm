@@ -25,9 +25,9 @@ export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembl
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
   readonly __wbg_memory_free: (a: number, b: number) => void;
+  readonly memory_len: (a: number) => number;
   readonly memory_new: (a: number, b: number) => number;
   readonly memory_ptr: (a: number) => number;
-  readonly memory_len: (a: number) => number;
   readonly __wbindgen_export_0: WebAssembly.Table;
   readonly __wbindgen_malloc: (a: number, b: number) => number;
   readonly __wbindgen_start: () => void;
