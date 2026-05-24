@@ -38,7 +38,7 @@ exampleWasm.example_method(memory)
 You can build the exact same bytecode using Docker
 
 ```bash
-npm run compile
+npm run compile && npm run prepack
 ```
 
 Then check that all the files are the same using `npm diff`
