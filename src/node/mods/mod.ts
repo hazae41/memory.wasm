@@ -1,8 +1,8 @@
-export * from "../../wasm/pkg/memory_wasm.js";
+export * from "../../wasm/pkg/daemon.js";
 
-/* @ts-types="../../wasm/pkg/memory_wasm.d.ts" */
-import init, { initSync, type InitOutput } from "../../wasm/pkg/memory_wasm.js";
-import { data } from "../../wasm/pkg/memory_wasm.wasm.js";
+/* @ts-types="../../wasm/pkg/daemon.d.ts" */
+import init, { initSync, type InitOutput } from "../../wasm/pkg/daemon.js";
+import { data } from "../../wasm/pkg/daemon.wasm.js";
 
 export async function load(): Promise<InitOutput> {
   return await init({ module_or_path: data })
