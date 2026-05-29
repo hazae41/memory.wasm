@@ -1,8 +1,8 @@
-export * from "../../wasm/pkg/daemon.js";
+export * from "../../wasm/out/daemon.js";
 
-/* @ts-types="../../wasm/pkg/daemon.d.ts" */
-import init, { initSync, type InitOutput } from "../../wasm/pkg/daemon.js";
-import { data } from "../../wasm/pkg/daemon.wasm.js";
+/* @ts-types="../../wasm/out/daemon.d.ts" */
+import init, { initSync, type InitOutput } from "../../wasm/out/daemon.js";
+import { data } from "../../wasm/out/daemon.wasm.js";
 
 export async function load(): Promise<InitOutput> {
   return await init({ module_or_path: data })
