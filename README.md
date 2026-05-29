@@ -19,7 +19,7 @@ npm install @hazae41/memory-wasm
 import { exampleWasm } from "@hazae41/example-wasm";
 
 // Wait for initialization
-await exampleWasm.initBundled();
+await exampleWasm.load();
 
 // Pass bytes to memory
 using memory = new exampleWasm.Memory();
