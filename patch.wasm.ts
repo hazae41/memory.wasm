@@ -1,8 +1,8 @@
-import { readFileSync, rmSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 
 const wasm = readFileSync(`./src/wasm/pkg/daemon_bg.wasm`)
 
-writeFileSync(`./src/wasm/pkg/daemon.wasm.js`, `export const data = "data:application/wasm;base64,${wasm.toString("base64")}";`);
+writeFileSync(`./src/wasm/pkg/daemon.wasm.js`, `export const data = "data:application/wasm;base64,${wasm.toBase64()}";`);
 writeFileSync(`./src/wasm/pkg/daemon.wasm.d.ts`, `export const data: string;`);
 
 const beforeMemoryJs = `export class Memory {
@@ -264,5 +264,3 @@ const glueTs = readFileSync(`./src/wasm/pkg/daemon.d.ts`, "utf8")
 
 writeFileSync(`./src/wasm/pkg/daemon.js`, glueJs)
 writeFileSync(`./src/wasm/pkg/daemon.d.ts`, glueTs)
-
-rmSync(`./src/wasm/pkg/.gitignore`, { force: true });
