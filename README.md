@@ -35,7 +35,7 @@ exampleWasm.example_method(memory)
 
 ### Reproducible building
 
-You can build the exact same bytecode using Docker
+You can build the exact same bytecode
 
 ```bash
 npm run compile && npm run prepack
