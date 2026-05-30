@@ -3,7 +3,7 @@
 Zero-copy memory for WebAssembly
 
 ```bash
-npm install @hazae41/memory-wasm
+npm install --save-peer @hazae41/memory-wasm
 ```
 
 [**📦 NPM**](https://www.npmjs.com/package/@hazae41/memory-wasm)
