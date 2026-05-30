@@ -1,7 +1,17 @@
 import { execSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 
-execSync("cd ./src/wasm && cargo build --target wasm32-unknown-unknown --release --locked && wasm-bindgen --target web --out-dir ./out ./target/wasm32-unknown-unknown/release/daemon.wasm && wasm-tools strip --all ./out/daemon_bg.wasm -o ./out/daemon_bg.wasm", { stdio: "inherit" })
+execSync("rustup target add wasm32-unknown-unknown", { stdio: "inherit" })
+
+execSync("cargo install wasm-tools --version 1.250.0 --locked", { stdio: "inherit" })
+
+execSync("cargo install wasm-bindgen-cli --version 0.2.100 --locked", { stdio: "inherit" })
+
+execSync("cargo build --target wasm32-unknown-unknown --release --locked", { stdio: "inherit", cwd: "./src/wasm" })
+
+execSync("wasm-bindgen --target web --out-dir ./out ./target/wasm32-unknown-unknown/release/daemon.wasm", { stdio: "inherit", cwd: "./src/wasm" })
+
+execSync("wasm-tools strip --all ./out/daemon_bg.wasm -o ./out/daemon_bg.wasm", { stdio: "inherit", cwd: "./src/wasm" })
 
 const wasm = readFileSync(`./src/wasm/out/daemon_bg.wasm`)
 
