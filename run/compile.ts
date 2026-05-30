@@ -1,4 +1,7 @@
+import { execSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
+
+execSync("cd ./src/wasm && cargo build --target wasm32-unknown-unknown --release --locked && wasm-bindgen --target web --out-dir ./out ./target/wasm32-unknown-unknown/release/daemon.wasm && wasm-tools strip --all ./out/daemon_bg.wasm -o ./out/daemon_bg.wasm", { stdio: "inherit" })
 
 const wasm = readFileSync(`./src/wasm/out/daemon_bg.wasm`)
 
