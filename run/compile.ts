@@ -9,7 +9,7 @@ const build = execSync("docker build -q .").toString("utf8")
 
 stack.defer(() => execSync(`docker rm tmp`, { stdio: "inherit" }))
 
-execSync(`docker run --name tmp --volume .:/app ${build}`, { stdio: "inherit" })
+execSync(`docker run --name tmp ${build}`, { stdio: "inherit" })
 
 execSync(`docker cp tmp:/out ./src/wasm`, { stdio: "inherit" })
 
